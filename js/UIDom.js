@@ -24,7 +24,7 @@ var createUiForm = function(){
     return divForm;
 }
 
-/* CREATE SUB-ITEM IN MENU  WITH STRUCTURE: 
+/* CREATE SUB-ITEM (menuitem) IN MENU  WITH STRUCTURE: 
     <div class="item menuitem" id="mitem1101">
         <div class="ui ">
             <label>One-way ANOVA (use group variable)...</label>
@@ -74,7 +74,7 @@ var createItemHeader = function(labelHeader) {
 
 
 
-/* CREATE THE WHOLE ITEM WITH HEADER-TITLE AND IT'S CONTENT OF SUB-ITEMS */
+/* CREATE THE WHOLE ITEM WITH HEADER-TITLE AND ITS MENUITEMS */
 var createMenuItem = function(item) {
   //div item
   var elDiv = document.createElement("div");
@@ -92,7 +92,7 @@ var createMenuItem = function(item) {
     
     /* If we have multiple sub-items we have to use createMultipleContent()
     for wrapping multiple items...
-    But any way  it will array. It consists of length
+    But any way it will be an array. It has a length
      */
     if(Array.isArray(item.items)){
       //If we have only one item we have to avoid additional createMultipleContent()
@@ -103,7 +103,7 @@ var createMenuItem = function(item) {
            if(subItem.visibility){
               var addAttr; // for setting attributes
                /* If "id" is absent and “isenabled”=false" it is a sub-menu. 
-                It doesn't have id, label and other stuff. Add class disable.
+                It doesn't have id, label and other stuff. It has class disable.
                 Thus, click event returns id = undifined and data-cmd = undefined
                   */
                if(!subItem.id &&  !subItem.isenabled ){

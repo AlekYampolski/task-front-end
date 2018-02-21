@@ -1,6 +1,6 @@
 $(".ui.accordion").accordion();
 /* I've copied code from https://jsfiddle.net/alexst/cpcozcd4/ 
-but there is some issue with console.log($(this).id);. 
+but there is an issue with console.log($(this).id);. 
 It returns undefined.
 
 There is a link to https://stackoverflow.com/questions/10578566/jquery-this-id-return-undefined
