@@ -102,7 +102,10 @@ var createMenuItem = function(item) {
        item.items.forEach(subItem => {
            if(subItem.visibility){
               var addAttr; // for setting attributes
-               /* If "id" is absent and “isenabled”=false" it is sub-menu  */
+               /* If "id" is absent and “isenabled”=false" it is a sub-menu. 
+                It doesn't have id, label and other stuff. Add class disable.
+                Thus, click event returns id = undifined and data-cmd = undefined
+                  */
                if(!subItem.id &&  !subItem.isenabled ){
                    addAttr = forContent.insertAdjacentElement('beforeend', createItemContent(subItem.label));
                    addAttr.classList.add('disabled');
