@@ -36,10 +36,15 @@ $(".ui.menu").on("click", ".menuitem", function() {
 });
 
 //Get json file. Need live-server for fetch
-fetch('menu_en.json')
-.then(response => response.json())
-.then(jsonResponse => {
+fetch("menu_en.json")
+  .then(response => response.json())
+  .then(jsonResponse => {
     jsonResponse.items.forEach(item => {
-        createMenuItem(item);
+      createMenuItem(item);
     });
-});  
+  })
+  .catch(error => {
+    console.log(
+      "There has been a problem with your fetch operation: " + error.message
+    );
+  });
